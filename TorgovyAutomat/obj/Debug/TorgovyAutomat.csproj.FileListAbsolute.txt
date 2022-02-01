@@ -1,0 +1,15 @@
+C:\Users\borze\Desktop\TorgovyAutomat\TorgovyAutomat\bin\Debug\TorgovyAutomat.exe.config
+C:\Users\borze\Desktop\TorgovyAutomat\TorgovyAutomat\bin\Debug\TorgovyAutomat.exe
+C:\Users\borze\Desktop\TorgovyAutomat\TorgovyAutomat\bin\Debug\TorgovyAutomat.pdb
+C:\Users\borze\Desktop\TorgovyAutomat\TorgovyAutomat\obj\Debug\TorgovyAutomat.csproj.AssemblyReference.cache
+C:\Users\borze\Desktop\TorgovyAutomat\TorgovyAutomat\obj\Debug\MainWindow.g.cs
+C:\Users\borze\Desktop\TorgovyAutomat\TorgovyAutomat\obj\Debug\App.g.cs
+C:\Users\borze\Desktop\TorgovyAutomat\TorgovyAutomat\obj\Debug\TorgovyAutomat_MarkupCompile.cache
+C:\Users\borze\Desktop\TorgovyAutomat\TorgovyAutomat\obj\Debug\TorgovyAutomat_MarkupCompile.lref
+C:\Users\borze\Desktop\TorgovyAutomat\TorgovyAutomat\obj\Debug\MainWindow.baml
+C:\Users\borze\Desktop\TorgovyAutomat\TorgovyAutomat\obj\Debug\TorgovyAutomat.g.resources
+C:\Users\borze\Desktop\TorgovyAutomat\TorgovyAutomat\obj\Debug\TorgovyAutomat.Properties.Resources.resources
+C:\Users\borze\Desktop\TorgovyAutomat\TorgovyAutomat\obj\Debug\TorgovyAutomat.csproj.GenerateResource.cache
+C:\Users\borze\Desktop\TorgovyAutomat\TorgovyAutomat\obj\Debug\TorgovyAutomat.csproj.CoreCompileInputs.cache
+C:\Users\borze\Desktop\TorgovyAutomat\TorgovyAutomat\obj\Debug\TorgovyAutomat.exe
+C:\Users\borze\Desktop\TorgovyAutomat\TorgovyAutomat\obj\Debug\TorgovyAutomat.pdb

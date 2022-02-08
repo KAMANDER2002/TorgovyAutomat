@@ -12,7 +12,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
-            <ListView Name="ProductsLv" Width="400" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center">
+            <ListView SelectionChanged="ProductsLv_SelectionChanged" Name="ProductsLv" Width="400" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -21,22 +21,36 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Name}"></TextBlock> 
+                        <Border BorderBrush="Black" BorderThickness="1">
+                            <StackPanel>
+                                <Image Width="70" Height="100">
+                                    <Image.Source>
+                                        <Binding Path="Image">
+                                            <Binding.TargetNullValue>
+                                                <ImageSource>View/nullPick.png</ImageSource>
+                                            </Binding.TargetNullValue>
+                                        </Binding>
+                                    </Image.Source>
+                                </Image>
+                                <TextBlock Text="{Binding name}"/>
+                                <TextBlock Text="{Binding Cost}"/>
+                            </StackPanel>
+                        </Border>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
         <Grid Grid.Column="1">
             <StackPanel Height="Auto">
-                <TextBlock FontSize="25" Margin="0,10,0,0" HorizontalAlignment="Center" Text="Баланс: 100 руб"/>
+                <TextBlock FontSize="25" Name="BalanceText" Margin="0,10,0,0" HorizontalAlignment="Center" Text=""/>
                     <StackPanel Margin="0,20,0,0" HorizontalAlignment="Center"> <!--Кнопки монет-->
                     <StackPanel Orientation="Horizontal"> 
-                        <Button Width="50" Height="50" Margin="0,0,10,0" Content="1"></Button>
-                        <Button Width="50" Height="50" Content="2"></Button>
+                        <Button Width="50" Click="OneRubleButton_Click" Name="OneRubleButton" Height="50" Margin="0,0,10,0" Content="1"></Button>
+                        <Button x:Name="TwoRublesButton" Click="TwoRublesButton_Click" Width="50" Height="50" Content="2"></Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                        <Button Width="50" Height="50" Margin="0,0,10,0" Content="5"></Button>
-                        <Button Width="50" Height="50" Content="10"></Button>
+                        <Button Width="50" x:Name="FiveRublesButton" Click="FiveRublesButton_Click" Height="50" Margin="0,0,10,0" Content="5"></Button>
+                        <Button Width="50" x:Name="TenRublesButton" Click="TenRublesButton_Click" Height="50" Content="10"></Button>
                     </StackPanel>
                 </StackPanel> <!--Кнопки монет закрывающая-->
                 <StackPanel Margin="0,30,0,0"> <!--Правила-->

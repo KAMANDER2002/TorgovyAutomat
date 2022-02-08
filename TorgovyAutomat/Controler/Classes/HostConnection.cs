@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TorgovyAutomat
+namespace TorgovyAutomat.Controler
 {
-   public class Product
+    class HostConnection
     {
-       public string Name { get; set; }
-       public string Images { get; set; }
+       public static string HostName = "http://localhost:65484/Api/";
     }
 }

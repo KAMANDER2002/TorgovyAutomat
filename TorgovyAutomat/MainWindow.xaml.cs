@@ -16,7 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TorgovyAutomat.Controler;
 using TorgovyAutomat.Model;
-
+using System.IO;
 namespace TorgovyAutomat
 {
     /// <summary>
@@ -25,14 +25,28 @@ namespace TorgovyAutomat
     public partial class MainWindow : Window
     {
         float summ = 0;
+        string crashString;
         WebClient client = new WebClient() {Encoding = Encoding.UTF8 };
-        
+        string path = Environment.CurrentDirectory + "crashlog.txt";
         public MainWindow()
         {
             InitializeComponent();
             GetBalance();
-
-            ProductsLv.ItemsSource = JsonConvert.DeserializeObject<List<DrinksRepositoryJson>>(client.DownloadString(HostConnection.HostName + "Drinks"));
+            try{
+                if (!File.Exists(path))
+                {
+                    File.Create(path).Close();
+                }
+                ProductsLv.ItemsSource = JsonConvert.DeserializeObject<List<DrinksRepositoryJson>>(client.DownloadString(HostConnection.HostName + "Drinks"));
+            }
+            
+            catch(Exception ex)
+            {
+                MessageBox.Show("Произошла ошибка связанная с сервером,"+Environment.NewLine+" подробности в фале CrashLogs","Внимание",MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                crashString = File.ReadAllText(path) + "[" + DateTime.Now.ToString("g")+"]" + " " + ex + Environment.NewLine + Environment.NewLine; 
+                File.WriteAllText(path, crashString);
+                this.Close();
+            }
             
         }
         private void GetBalance()
@@ -69,18 +83,25 @@ namespace TorgovyAutomat
             if (ProductsLv.SelectedItem != null)
             {
                 DrinksRepositoryJson drink = (DrinksRepositoryJson)ProductsLv.SelectedItem;
-                MessageBox.Show(drink.Cost.ToString() + "f" + summ.ToString());
-                if (drink.Cost < summ)
+              
+                if (drink.Cost <= summ)
                 {
-                    MessageBox.Show(drink.name);
+                    MessageBox.Show("Спасибо за покупку");
                     summ -= drink.Cost;
-                    MessageBox.Show(summ.ToString());
+                    GetBalance();
                 }
-                else MessageBox.Show("Денег мало" + summ.ToString());
+                else MessageBox.Show("Денег недостаточно, внесите нужную сумму");
             }
             ProductsLv.UnselectAll();
 
-            //    MessageBox.Show("Вам не хватает денег");
+            
+        }
+
+        private void Sdacha_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Ваша сдача " + summ.ToString() + " руб.");
+            summ = 0;
+            GetBalance();
         }
     }
 }

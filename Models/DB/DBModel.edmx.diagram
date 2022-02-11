@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4a941c77f12a475a8ecf120fed1aaefd" Name="Diagram1">
+        <EntityTypeShape EntityType="TorgovyAutomatModel.Coins" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TorgovyAutomatModel.Drinks" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="TorgovyAutomatModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="TorgovyAutomatModel.VendingMachineDrinks" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TorgovyAutomatModel.VendingMachines" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="TorgovyAutomatModel.VendingMachinesCoins" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="TorgovyAutomatModel.FK_VendingMachinesCoins_Coins" ManuallyRouted="false" />
+        <AssociationConnector Association="TorgovyAutomatModel.FK_VendingMachineDrinks_Drinks" ManuallyRouted="false" />
+        <AssociationConnector Association="TorgovyAutomatModel.FK_VendingMachineDrinks_VendingMachines" ManuallyRouted="false" />
+        <AssociationConnector Association="TorgovyAutomatModel.FK_VendingMachinesCoins_VendingMachines" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
